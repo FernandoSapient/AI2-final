@@ -48,5 +48,9 @@ The dataset is ranging from 1975 to 2013
 
   > P(GDP | Tertiary)
 
+4. Which between Secondary and College education is important to the GDP?
+
+  > MAX { P(Secondary | GDP, Indicators), P(Tertiary | GDP, Indicators) }
+
 ## References
 [References](references.md)
