@@ -28,3 +28,6 @@ The dataset is ranging from 1975 to 2013
 - Labor3      > _Labor force with tertiary education (% of total)_
 
 [Variable definitions](variables.md)
+
+## References
+[References](references.md)
