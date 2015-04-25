@@ -35,5 +35,18 @@ The dataset is ranging from 1975 to 2013
 | 2.5     | 0.002       | 0.0001        | 16.345          | 39.350       | 11.048         |
 | 7.0     | 0.012       | 0.0010        | 17.271          | 39.599       | 11.722         |
 
+## Queries
+1. Will the GDP increase?
+
+  > P(GDP | Indicators)
+
+2. Which factor contribute the most to the GDP?
+
+  > MAX { P(Agriculture | GDP, Edu), P(Industry | GDP, Edu), P(Service | GDP, Edu) }
+
+3. How likely that the GDP will grow with the increasing college graduates?
+
+  > P(GDP | Tertiary)
+
 ## References
 [References](references.md)
