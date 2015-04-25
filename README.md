@@ -52,5 +52,8 @@ The dataset is ranging from 1975 to 2013
 
   > MAX { P(Secondary | GDP, Indicators), P(Tertiary | GDP, Indicators) }
 
+## Bayesian network 1
+![BN_1](BN_1.png "Bayesian network 1")
+
 ## References
 [References](references.md)
