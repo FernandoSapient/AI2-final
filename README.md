@@ -15,27 +15,25 @@
 The dataset is ranging from 1975 to 2013
 
 ## Variables
-- **GDP** 
-  - GDP growth (annual %) GDP per capita
-- Journal 
-  - Scientific and technical journal articles 
-- Trademark 
+1. **GDP** 
+> GDP growth (annual %) GDP per capita
+2. Journal 
+> Scientific and technical journal articles 
+3. Trademark 
   - Trademark applications total
-- Agriculture 
+4. Agriculture 
   - Agriculture, value added (% of GDP)
-- Industry 
+5. Industry 
   - Industry, value added (% of GDP)
-- Manufacture 
+6. Manufacture 
   - Manufacturing, value added (% of GDP)
-- Service 
+7. Service 
   - Services, etc., value added (% of GDP)
-- Government 
+8. Government 
   - General government final consumption expenditure (% of GDP)
-- PPP 
+9. PPP 
   - GDP per capita, PPP (constant 2011 international $)
-- Labor2 
+10. Labor2 
   - Labor force with secondary education (% of total)
-- Labor3 
+11. Labor3 
   - Labor force with tertiary education (% of total)
-
-## Definition of variables
