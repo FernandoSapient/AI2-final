@@ -55,6 +55,10 @@ The dataset is ranging from 1975 to 2013
 ## Bayesian network 1
 ![BN_1](BN_1.png "Bayesian network 1")
 
+
+## Bayesian network 2
+![BN_2](BN_2.png "Bayesian network 2")
+
 ## Inference tasks from the slide
 ![Inference tasks](inference_tasks.png "Inference tasks")
 
