@@ -26,3 +26,5 @@ The dataset is ranging from 1975 to 2013
 - PPP         > _GDP per capita, PPP (constant 2011 international $)_
 - Labor2      > _Labor force with secondary education (% of total)_
 - Labor3      > _Labor force with tertiary education (% of total)_
+
+[Variable definitions](variables.md)
