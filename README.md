@@ -29,5 +29,11 @@ The dataset is ranging from 1975 to 2013
 
 [Variable definitions](variables.md)
 
+## Sample dataset
+| GDP (%) | Journal (%) | Trademark (%) | Agriculture (%) | Industry (%) | Government (%) |
+| --------|-------------|---------------|-----------------|--------------|----------------|
+| 2.5     | 0.002       | 0.0001        | 16.345          | 39.350       | 11.048         |
+| 7.0     | 0.012       | 0.0010        | 17.271          | 39.599       | 11.722         |
+
 ## References
 [References](references.md)
