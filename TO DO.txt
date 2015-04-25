@@ -1,0 +1,26 @@
+﻿Decisions to make:
+☑ Select variables to use
+☑ Design BN variations
+☐ Decide how to subdivide countries
+☑ Decide how to store data
+
+Responsibilities to Assign:
+A- Download variables whe don't have yet
+F- Encode data structure
+A- Scale variables
+M- Aggregate data
+F- Calculate STE
+ - Automate BN derivation (use elimination?)
+ - Construct BN1 (naive) for each aggregation
+   - Version 1:  5 variables
+   - Version 2: 10 variables
+ - Construct BN2 (layered) for each aggregation
+   - Version 1:  5 variables
+   - Version 2: 10 variables
+ - Modify BN2 to deal with time slices (Education' now influenced by GDP)
+   - Version 1:  5 variables
+   - Version 2: 10 variables
+ - Compute accuracies
+ - Measure performance (time, complexity, etc)   
+ - Presentation
+ - Report
