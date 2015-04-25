@@ -11,3 +11,17 @@ title('Number of journal articles published in the United States');
 xlabel('year');
 ylabel('articles');
 set(gca,'YTickLabel',separatethousands(get(gca,'YTick').',','))
+
+
+%% Discretize GDP growth into {H, M, L}
+GDP = csvread('gdp_growth.csv');
+
+% Region 1-8
+r1 = discretize(GDP(:, 1));
+r2 = discretize(GDP(:, 2));
+r3 = discretize(GDP(:, 3));
+r4 = discretize(GDP(:, 4));
+r5 = discretize(GDP(:, 5));
+r6 = discretize(GDP(:, 6));
+r7 = discretize(GDP(:, 7));
+r8 = discretize(GDP(:, 8));
