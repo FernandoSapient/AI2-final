@@ -35,10 +35,14 @@ function out = depends_on( y, x, threshold, minimum )
         if(nargin >=4 && d_y_x<minimum)
             out = false;
         else
-            if(nargin < 3)
-                out = d_y_x > d_x_y;
+            if(d_y_x > d_x_y)
+               out = true;
             else
-                out = (d_y_x - d_x_y < threshold);
+                if(nargin < 3)
+                    out = false;
+                else
+                    out = (abs(d_y_x - d_x_y) < threshold);
+                end
             end
         end
     catch
