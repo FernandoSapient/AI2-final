@@ -1,4 +1,4 @@
-function T = get_STE_relation( region_data, lookup, threshold )
+function T = get_STE_dependencies( region_data, lookup, threshold )
 %Automatically extracts and computes whether arcs are necessary between all
 %the pairs of variables that compose REGION_DATA. Variables in this version
 %are assumed to include, at least, agriculture, industry, government,
