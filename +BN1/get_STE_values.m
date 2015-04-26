@@ -1,4 +1,4 @@
-function T = get_STE_dependencies( region_data, lookup, threshold )
+function T = get_STE_values( region_data, lookup )
 %Automatically extracts and computes whether arcs are necessary between all
 %the pairs of variables that compose REGION_DATA. Variables in this version
 %are assumed to include, at least, agriculture, industry, government,
@@ -18,7 +18,7 @@ function T = get_STE_dependencies( region_data, lookup, threshold )
     industry = get_all_years(region_data,char(lookup),'Industry, value added (% of GDP)');
     government = get_all_years(region_data,char(lookup),'General government final consumption expenditure (% of GDP)');
     articles = get_all_years(region_data,char(lookup),'Scientific and technical journal articles');
-    gdp = get_all_years(region_data,char(lookup),'GDP growth (annual %)');
+    gdp = get_all_years(region_data,char(lookup),'GDP per capita, PPP (constant 2011 international $)');
     tertiary = get_all_years(region_data,char(lookup),'Labor force with tertiary education (% of total)');
     
     T = BN1.dependency_values( tertiary, gdp, agriculture, industry, government, articles);

@@ -1,4 +1,4 @@
-function T = get_STE_dependencies( region_data, lookup, threshold )
+function T = get_STE_dependencies( region_data, lookup, threshold, minimum )
 %Automatically extracts and computes whether arcs are necessary between all
 %the pairs of variables that compose REGION_DATA. Variables in this version
 %are assumed to include, at least, agriculture, industry, government,
@@ -11,16 +11,16 @@ function T = get_STE_dependencies( region_data, lookup, threshold )
 %       LOOKUP       - An index vector with M rows containing the 
 %                      indicators that each row in INDICATOR corresponds
 %                      to.
-%       threshold - value at which the possibility is discarded. This value
+%       threshold & minimum - value at which the possibility is discarded. This value
 %                   is taken as proportional to the means of y.
-%                   (See DEPENDS_ON for more information    agriculture = get_all_years(region_data,char(lookup),'Agriculture, value added (% of GDP)');
+%                   (See DEPENDS_ON for more information)
     agriculture = get_all_years(region_data,char(lookup),'Agriculture, value added (% of GDP)');
     industry = get_all_years(region_data,char(lookup),'Industry, value added (% of GDP)');
     government = get_all_years(region_data,char(lookup),'General government final consumption expenditure (% of GDP)');
     articles = get_all_years(region_data,char(lookup),'Scientific and technical journal articles');
-    gdp = get_all_years(region_data,char(lookup),'GDP growth (annual %)');
+    gdp = get_all_years(region_data,char(lookup),'GDP per capita, PPP (constant 2011 international $)');
     tertiary = get_all_years(region_data,char(lookup),'Labor force with tertiary education (% of total)');
     
-    T = BN1.dependencies_v1( tertiary, gdp, agriculture, industry, government, articles, threshold);
+    T = BN1.dependencies_v1( tertiary, gdp, agriculture, industry, government, articles, threshold, minimum);
 end
 
