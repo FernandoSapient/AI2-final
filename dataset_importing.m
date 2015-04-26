@@ -1,4 +1,6 @@
 % Importing Variable Dataset...
+% IMPORTING DATA SET - import each variable from the EXCEL sheet to *.mat
+% ...
 clc;
 close all
 clear all;
