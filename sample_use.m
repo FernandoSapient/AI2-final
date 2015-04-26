@@ -25,6 +25,14 @@ r6 = discretize(GDP(:, 6));
 r7 = discretize(GDP(:, 7));
 r8 = discretize(GDP(:, 8));
 
+%% combination.m
+domains = {};
+domains{1} = 'HML' + 0;
+domains{2} = 'HML' + 0;
+domains{3} = 'HML' + 0;
+
+A = combination(domains);
+
 %% Learn parameters for BN_1
 set_laplace_k(1);
 
@@ -42,6 +50,8 @@ domain = ('HML')';
 P_Agriculture = Pr(agriculture(~isnan(agriculture)), domain);
 P_Industry = Pr(industry(~isnan(industry)), domain);
 P_Government = Pr(government(~isnan(government)), domain);
-
 % P_Journal = Pr(journal, 'HML');
+
+%%
+% P_GDP_given_Agriculture_Industry_Government = CPT(gdp_growth, agriculture, industry, government);
 
