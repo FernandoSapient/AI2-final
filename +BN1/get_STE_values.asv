@@ -29,7 +29,7 @@ function [T, V] = get_STE_values( region_data, lookup, threshold, minimum )
     gdp = get_all_years(region_data,char(lookup),'GDP per capita, PPP (constant 2011 international $)');
     tertiary = get_all_years(region_data,char(lookup),'Labor force with tertiary education (% of total)');
     
-    V = BN1.dependency_values( tertiary, gdp, agriculture, industry, government, articles);
-    T = STE.dependency_table( V, threshold, minimum);
+    T = BN1.dependencies_v1( tertiary, gdp, agriculture, industry, government, articles, threshold, minimum);
+    V = STE.dependency_table( tertiary, gdp, agriculture, industry, government, articles);
 end
 
