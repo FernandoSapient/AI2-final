@@ -12,7 +12,6 @@ xlabel('year');
 ylabel('articles');
 set(gca,'YTickLabel',separatethousands(get(gca,'YTick').',','))
 
-
 %% Discretize GDP growth into {H, M, L}
 GDP = csvread('gdp_growth.csv');
 
@@ -25,3 +24,24 @@ r5 = discretize(GDP(:, 5));
 r6 = discretize(GDP(:, 6));
 r7 = discretize(GDP(:, 7));
 r8 = discretize(GDP(:, 8));
+
+%% Learn parameters for BN_1
+set_laplace_k(1);
+
+region_1 = csvread('experiment/region_1.csv');
+region_1(region_1 == 0) = nan;
+
+journal = region_1(:,1);
+agriculture = discretize(region_1(:,3));
+industry = discretize(region_1(:,4));
+government = discretize(region_1(:,7));
+gdp_growth = discretize(region_1(:,8));
+
+domain = ('HML')';
+
+P_Agriculture = Pr(agriculture(~isnan(agriculture)), domain);
+P_Industry = Pr(industry(~isnan(industry)), domain);
+P_Government = Pr(government(~isnan(government)), domain);
+
+% P_Journal = Pr(journal, 'HML');
+
