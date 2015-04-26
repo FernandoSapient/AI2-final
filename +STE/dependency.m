@@ -6,8 +6,8 @@ function [d_y_from_x, d_x_from_y]= dependency( y, x )
 %           of Y
 %   Outputs:
 %       d_y_from_x - the degree on which y depends on x
-%       d_x_from_y -
-    d_y_from_x = 1-abs(STEYXY(y,x))/mean(y);
-    d_x_from_y = 1-abs(STEYXY(x,y))/mean(x);
+%       d_x_from_y - the degree on which x depends on y
+    d_y_from_x = 1-abs(STE.STEYXY(y,x))/mean(y);
+    d_x_from_y = 1-abs(STE.STEYXY(x,y))/mean(x);
 end
 

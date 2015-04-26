@@ -1,5 +1,7 @@
 function out = depends_on( y, x, threshold )
-%DEPENDS_ON returns whether y depends on x
+%DEPENDS_ON returns whether y depends on x. Any row with a missing value
+%(nan) in either vector will cause the corresponding cell in the other to 
+%be omitted from the analysis.
 %   Inputs:
 %       Y - column vector of values of a variable believed to be caused by X
 %       X - column vector of values of a variable believed to be the cause
@@ -12,11 +14,16 @@ function out = depends_on( y, x, threshold )
 %                   false.
 %   Outputs:
 %       TRUE or FALSE
-    [d_y_x, d_x_y] = dependency(y,x);
-    if(nargin >=3 && d_y_x<threshold)
+    valid = ~isnan(x) & ~isnan(y);
+    try
+        [d_y_x, d_x_y] = STE.dependency(y(valid),x(valid));
+        if(nargin >=3 && d_y_x<threshold)
+            out = false;
+        else
+            out = d_y_x > d_x_y;
+        end
+    catch
         out = false;
-    else
-        out = d_y_x > d_x_y;
     end
 end
 

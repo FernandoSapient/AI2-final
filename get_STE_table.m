@@ -21,6 +21,6 @@ function T = get_STE_relation( region_data, lookup, threshold )
     gdp = get_all_years(region_data,char(lookup),'GDP growth (annual %)');
     tertiary = get_all_years(region_data,char(lookup),'Labor force with tertiary education (% of total)');
     
-    T = dependencies_v1( tertiary, gdp, agriculture, industry, government, articles, threshold);
+    T = BN1.dependencies_v1( tertiary, gdp, agriculture, industry, government, articles, threshold);
 end
 

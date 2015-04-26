@@ -1,8 +1,8 @@
-function indicator_values = get_all_years(region_data, lookup, lookup_value)
+function indicator_values = get_region(all_data, lookup, lookup_value)
 %Gets the values of the given indicator for the given country for all the
 %M years that the variable spans
 %   Inputs:
-%       REGION_DATA  - An N by M matrix containing all the values of the
+%       ALL_DATA     - An N by M*P matrix containing all the values of the
 %                      desired country, where n is the number of years
 %                      and M is the number of indicators. Indicators must 
 %                      be ordered as stated in LOOKUP
@@ -21,6 +21,6 @@ function indicator_values = get_all_years(region_data, lookup, lookup_value)
     comparison_name = repmat(padded_name,n,1);
     matching_chars = lookup == comparison_name;
     matching_row = all(matching_chars,2);
-    indicator_values = region_data(:, matching_row);
+    indicator_values = all_data(:, matching_row);
 end
 
