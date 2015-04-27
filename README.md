@@ -15,25 +15,25 @@
 The dataset is ranging from 1975 to 2013
 
 ## Variables
-- **GDP**     > _GDP growth (annual %) GDP per capita_
-- Journal     > _Scientific and technical journal articles_
-- Trademark   > _Trademark applications total_
-- Agriculture > _Agriculture, value added (% of GDP)_
-- Industry    > _Industry, value added (% of GDP)_
-- Manufacture > _Manufacturing, value added (% of GDP)_
-- Service     > _Services, etc., value added (% of GDP)_
-- Government  > _General government final consumption expenditure (% of GDP)_
-- PPP         > _GDP per capita, PPP (constant 2011 international $)_
-- Labor2      > _Labor force with secondary education (% of total)_
-- Labor3      > _Labor force with tertiary education (% of total)_
+1. Journal     > _Scientific and technical journal articles_
+2. Trademark   > _Trademark applications total_
+3. Agriculture > _Agriculture, value added (% of GDP)_
+4. Industry    > _Industry, value added (% of GDP)_
+5. Manufacture > _Manufacturing, value added (% of GDP)_
+6. Service     > _Services, etc., value added (% of GDP)_
+7. Government  > _General government final consumption expenditure (% of GDP)_
+8. **GDP**     > _GDP growth (annual %) GDP per capita_
+9. **PPP**         > _GDP per capita, PPP (constant 2011 international $)_
+10. Secondary      > _Labor force with secondary education (% of total)_
+11. Tertiary      > _Labor force with tertiary education (% of total)_
 
 [Variable definitions](variables.md)
 
 ## Sample dataset
-| GDP (%) | Journal (%) | Trademark (%) | Agriculture (%) | Industry (%) | Government (%) |
-| --------|-------------|---------------|-----------------|--------------|----------------|
-| 2.5     | 0.002       | 0.0001        | 16.345          | 39.350       | 11.048         |
-| 7.0     | 0.012       | 0.0010        | 17.271          | 39.599       | 11.722         |
+| Journal (%) | Trademark (%) | Agriculture (%) | Industry (%) | Manufacture (%) | ... |
+|-------------|---------------|-----------------|--------------|----------------|-----|
+| 0.002       | 0.0001        | 16.345          | 39.350       | 11.048         | ... |
+| 0.012       | 0.0010        | 17.271          | 39.599       | 11.722         | ... |
 
 ## Queries
 1. Will the GDP increase?
