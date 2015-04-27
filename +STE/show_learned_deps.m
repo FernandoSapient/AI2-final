@@ -1,8 +1,0 @@
-Africa_STE_deps
-EastAsia_STE_deps
-Europe_STE_deps
-LatinAmerica_STE_deps
-MiddleEast_STE_deps
-NorthAmerica_STE_deps
-SouthAsia_STE_deps
-World_STE_deps

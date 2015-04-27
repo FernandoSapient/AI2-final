@@ -58,6 +58,8 @@ The dataset is ranging from 1975 to 2013
 
 ## Bayesian network 2
 ![BN_2](BN_2.png "Bayesian network 2")
+[Dependencies for each region (layers 1-3)](dependenciesBN2.md)
+[Dependencies for each region (layer 1)](dependenciesBN2a.md)
 
 ## Inference tasks from the slide
 ![Inference tasks](inference_tasks.png "Inference tasks")

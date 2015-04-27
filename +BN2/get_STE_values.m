@@ -22,19 +22,24 @@ function [T, V] = get_STE_values( region_data, lookup, threshold, minimum )
 %       V - A table of reals indicating the values used to compute T where
 %           "to" indicates the examined direction of the arrow. Each value
 %           is 
+    articles = get_all_years(region_data,char(lookup),'Scientific and technical journal articles');
+    trademarks = get_all_years(region_data,char(lookup),'Trademark applications, total');
     agriculture = get_all_years(region_data,char(lookup),'Agriculture, value added (% of GDP)');
     industry = get_all_years(region_data,char(lookup),'Industry, value added (% of GDP)');
+    services = get_all_years(region_data,char(lookup),'Services, etc., value added (% of GDP)');
     government = get_all_years(region_data,char(lookup),'General government final consumption expenditure (% of GDP)');
-    articles = get_all_years(region_data,char(lookup),'Scientific and technical journal articles');
+    gdp_growth = get_all_years(region_data,char(lookup),'GDP growth (annual %)');
     ppp = get_all_years(region_data,char(lookup),'GDP per capita, PPP (constant 2011 international $)');
+    secondary = get_all_years(region_data,char(lookup),'Labor force with secondary education (% of total)');
     tertiary = get_all_years(region_data,char(lookup),'Labor force with tertiary education (% of total)');
+    unemployment = get_all_years(region_data,char(lookup),'Unemployment, total (% of total labor force) (modeled ILO estimate)');
     
     V = STE.dependency_values(...
-        {'Agriculture', 'Industry', 'Government', 'Articles'},...
-        {agriculture, industry, government, articles},...
-        {'Tertiary', 'PPP'},...
-        {tertiary, ppp},...
-        [true, false]);
+        {'Agriculture', 'Industry', 'Services', 'Unemployment'},...
+        { agriculture,   industry,   services,   unemployment},...
+        {'Secondary' 'Tertiary', 'Articles', 'Trademarks', 'Government', 'GDP_growth', 'PPP'},...
+        { secondary,  tertiary,   articles,   trademarks,   government,   gdp_growth,   ppp},...
+        [ true,       true,       true,       true,         true,         false,        false]);
     T = STE.dependency_table( V, threshold, minimum);
 end
 
