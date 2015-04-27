@@ -34,6 +34,10 @@ P_Agriculture = Pr(agriculture(~isnan(agriculture)), domain);
 missing = isnan(ppp) | isnan(agriculture) | isnan(journal);
 P_PPP_given_Journal_Agriculture = CPT(ppp(~missing), journal(~missing), agriculture(~missing));
 
+display(P_Journal);
+display(P_Agriculture);
+display(P_PPP_given_Journal_Agriculture);
+
 %% Region 2 : Europe & Central Africa
 Europe =  get_region(Dataset, char(CountryName), 'Europe & Central Asia (all income levels)');
 [Europe_STE_deps, Eurpe_STE_vals] = BN1.get_STE_values(Europe,char(IndicatorName), thresh, min);
@@ -63,3 +67,10 @@ missing = isnan(ppp) | ....
     isnan(agriculture) | isnan(journal) | isnan(agriculture) | isnan(industry) | isnan(government);
 P_PPP_given_Journal_Agriculture_Industry_Government = CPT(...
     ppp(~missing), journal(~missing), agriculture(~missing), industry(~missing), government(~missing));
+
+display(P_Tertiary);
+display(P_Journal);
+display(P_Agriculture);
+display(P_Industry);
+display(P_Government);
+display(P_PPP_given_Journal_Agriculture_Industry_Government);
