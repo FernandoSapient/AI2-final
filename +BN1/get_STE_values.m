@@ -26,10 +26,15 @@ function [T, V] = get_STE_values( region_data, lookup, threshold, minimum )
     industry = get_all_years(region_data,char(lookup),'Industry, value added (% of GDP)');
     government = get_all_years(region_data,char(lookup),'General government final consumption expenditure (% of GDP)');
     articles = get_all_years(region_data,char(lookup),'Scientific and technical journal articles');
-    gdp = get_all_years(region_data,char(lookup),'GDP per capita, PPP (constant 2011 international $)');
+    ppp = get_all_years(region_data,char(lookup),'GDP per capita, PPP (constant 2011 international $)');
     tertiary = get_all_years(region_data,char(lookup),'Labor force with tertiary education (% of total)');
     
-    V = BN1.dependency_values( tertiary, gdp, agriculture, industry, government, articles);
+    V = STE.dependency_values(...
+        {'Agriculture', 'Industry', 'Government', 'Articles'},...
+        {agriculture, industry, government, articles},...
+        {'Tertiary', 'PPP'},...
+        {tertiary, ppp},...
+        [true, false]);
     T = STE.dependency_table( V, threshold, minimum);
 end
 
