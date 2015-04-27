@@ -2,7 +2,7 @@ function T = dependency_values( tertiary, gdp, agriculture, industry, government
 %Gets all dependencies for the version 1 network as a table. The first
 %column indicating if the variable is dependent on education, the second
 %column indicating if GDP is dependent on that variable
-    T = table(zeros(4,1), zeros(4,1), zeros(4,1), zeros(4,1), 'RowNames', {'Agriculture', 'Industry', 'Government', 'Articles'}, 'VariableNames', {'Tertiary_to_var', 'var_to_Tertiary', 'GDP_to_var', 'var_to_GDP'});
+    T = table(zeros(4,1), zeros(4,1), zeros(4,1), zeros(4,1), 'RowNames', {'Agriculture', 'Industry', 'Government', 'Articles'}, 'VariableNames', {'Tertiary_to_var', 'var_to_Tertiary', 'var_to_GDP', 'GDP_to_var'});
     [T('Agriculture', 'Tertiary_to_var'), T('Agriculture', 'var_to_Tertiary')] = cellified_deps(agriculture, tertiary);
     [T('Agriculture', 'var_to_GDP'), T('Agriculture', 'GDP_to_var')] = cellified_deps(gdp, agriculture);
     [T('Industry', 'Tertiary_to_var'), T('Industry', 'var_to_Tertiary')] = cellified_deps(industry, tertiary);

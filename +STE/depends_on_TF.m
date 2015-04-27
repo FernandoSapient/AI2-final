@@ -1,11 +1,10 @@
-function out = depends_on( y, x, threshold, minimum )
-%DEPENDS_ON returns whether y depends on x. Any row with a missing value
-%(nan) in either vector will cause the corresponding cell in the other to 
-%be omitted from the analysis.
+function out = depends_on_TF( d_y_x, d_x_y, threshold, minimum )
+%DEPENDS_ON_TF returns TRUE or FALSE, making the decision on whether the
+%degrees are different enough that dependency should be considered. If
+%either degree is NAN, the function immediately returns FALSE.
 %   Inputs:
-%       Y - column vector of values of a variable believed to be caused by X
-%       X - column vector of values of a variable believed to be the cause
-%           of Y
+%       d_y_x - degreee of depenency of the variable Y on the variable X
+%       d_x_y - degreee of depenency of the variable Y on the variable X
 %       threshold - Difference below which the possibility is accepted. 
 %                   This value is taken as proportional to the means of y.
 %                   E.g.: if the threshold is 0.1 and the dependency analysis
@@ -29,9 +28,7 @@ function out = depends_on( y, x, threshold, minimum )
 %                   false.
 %   Outputs:
 %       TRUE or FALSE
-    valid = ~isnan(x) & ~isnan(y);
-    try
-        [d_y_x, d_x_y] = STE.dependency(y(valid),x(valid));
+    if(~isnan(d_y_x) && ~isnan(d_x_y))
         if(nargin >=4 && d_y_x<minimum)
             out = false;
         else
@@ -45,7 +42,7 @@ function out = depends_on( y, x, threshold, minimum )
                 end
             end
         end
-    catch
+    else
         out = false;
     end
 end

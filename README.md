@@ -54,7 +54,7 @@ The dataset is ranging from 1975 to 2013
 
 ## Bayesian network 1
 ![BN_1](BN_1.png "Bayesian network 1")
-
+[Dependencies for each region](dependenciesBN1.md)
 
 ## Bayesian network 2
 ![BN_2](BN_2.png "Bayesian network 2")
