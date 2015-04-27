@@ -54,8 +54,12 @@ P_Government = Pr(government(~isnan(government)), domain);
 % I need Journal article to be scaled
 % P_Journal = Pr(journal, 'HML');
 
-%%
 missing = isnan(gdp_growth) | isnan(agriculture) | isnan(industry) | isnan(government);
 
-% P_GDP_given_Agriculture_Industry_Government = CPT(...
-%     gdp_growth(~missing), agriculture(~missing), industry(~missing), government(~missing));
+P_GDP_given_Agriculture_Industry_Government = CPT(...
+    gdp_growth(~missing), agriculture(~missing), industry(~missing), government(~missing))';
+
+display(P_Agriculture);
+display(P_Industry);
+display(P_Government);
+display(P_GDP_given_Agriculture_Industry_Government);
