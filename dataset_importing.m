@@ -4,11 +4,11 @@
 clc;
 close all
 clear all;
-display('Importing Datasets...');
-%% Importing Dataset ...
-all_vari = xlsread('All variables.xlsx');
-%...
-%% Importing Population Dataset ...
+ display('Importing Datasets...');
+ %% Importing Dataset ...
+ all_vari = xlsread('All variables.xlsx');
+ %...
+ %% Importing Population Dataset ...
 pop = xlsread('Population.xlsx');
 [r_num c_num]=size(pop);
 %% Do scaling variable Trademark applications, total ...
@@ -20,5 +20,12 @@ display('Done...');
 display('Scaling variable for Scientific and technical journal...');
 variable_scaled=(all_vari(:,3)./pop(:,2))*100;
 all_vari(:,3)=variable_scaled;
+display('Done...');
+%% Do scaling variable for Scientific and technical journal ...
+display('Scaling the GDP per capita...');
+variable_scaled=all_vari(:,10);
+Max = max(variable_scaled);
+variable_scaled(:)=(variable_scaled(:)./Max)*100;
+all_vari(:,10)=variable_scaled(:);
 display('Done...');
 save('dataset.mat','all_vari');

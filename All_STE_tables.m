@@ -1,4 +1,5 @@
 %% Load files
+clc;
 load_into_mtx_autogen;
 load_region_lookup_autogen;
 load_var_name_autogen;
