@@ -116,7 +116,7 @@ display(P_Industry);
 display(P_Government);
 display(P_PPP_given_Journal_Agriculture_Industry_Government);
 
-%% South Asia
+%% Region 5 : South Asia
 SouthAsia =  get_region(Dataset, char(CountryName), 'South Asia');
 [SouthAsia_STE_deps, SouthAsia_STE_vals] = BN1.get_STE_values(SouthAsia,char(IndicatorName), thresh, min);
 
@@ -135,3 +135,21 @@ P_PPP_given_Journal = CPT(ppp(~missing), journal(~missing));
 display(P_Tertiary);
 display(P_Journal_given_Tertiary);
 display(P_PPP_given_Journal);
+
+%% Region 6 : Sub-saharan Africa
+Africa =  get_region(Dataset, char(CountryName), 'Sub-Saharan Africa (all income levels)');
+[Africa_STE_deps, Africa_STE_vals] = BN1.get_STE_values(Africa,char(IndicatorName), thresh, min);
+
+journal = discretize(Europe(:,1));
+agriculture = discretize(Europe(:,3));
+ppp = discretize(Europe(:, 9));
+
+P_Journal = Pr(journal(~isnan(journal)), domain);
+P_Agriculture = Pr(agriculture(~isnan(agriculture)), domain);
+
+missing = isnan(ppp) | isnan(journal) | isnan(agriculture);
+P_PPP_given_Journal_Agriculture = CPT(ppp(~missing), journal(~missing), agriculture(~missing));
+
+display(P_Journal);
+display(P_Agriculture);
+display(P_PPP_given_Journal_Agriculture);
