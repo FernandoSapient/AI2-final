@@ -115,3 +115,23 @@ display(P_Agriculture);
 display(P_Industry);
 display(P_Government);
 display(P_PPP_given_Journal_Agriculture_Industry_Government);
+
+%% South Asia
+SouthAsia =  get_region(Dataset, char(CountryName), 'South Asia');
+[SouthAsia_STE_deps, SouthAsia_STE_vals] = BN1.get_STE_values(SouthAsia,char(IndicatorName), thresh, min);
+
+tertiary = discretize(SouthAsia(:,11));
+journal = discretize(SouthAsia(:,1));
+ppp = discretize(SouthAsia(:,9));
+
+P_Tertiary = Pr(tertiary(~isnan(tertiary)), domain);
+
+missing = isnan(journal) | isnan(tertiary);
+P_Journal_given_Tertiary = CPT(journal(~missing), tertiary(~missing));
+
+missing = isnan(ppp) | isnan(journal);
+P_PPP_given_Journal = CPT(ppp(~missing), journal(~missing));
+
+display(P_Tertiary);
+display(P_Journal_given_Tertiary);
+display(P_PPP_given_Journal);
