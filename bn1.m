@@ -97,3 +97,29 @@ display(P_Tertiary);
 display(P_Journal);
 display(P_Agriculture_given_Tertiary);
 display(P_PPP_given_Journal_Agriculture);
+
+%% Region 4 : Middle East & North Africa
+MiddleEast =  get_region(Dataset, char(CountryName), 'Middle East & North Africa (all income levels)');
+[MiddleEast_STE_deps, MiddleEast_STE_vals] = BN1.get_STE_values(MiddleEast,char(IndicatorName), thresh, min);
+
+journal = discretize(MiddleEast(:,1));
+agriculture = discretize(MiddleEast(:,3));
+industry = discretize(MiddleEast(:,4));
+government = discretize(MiddleEast(:,7));
+ppp = discretize(MiddleEast(:, 9));
+
+P_Journal = Pr(journal(~isnan(journal)), domain);
+P_Agriculture = Pr(agriculture(~isnan(agriculture)), domain);
+P_Industry = Pr(industry(~isnan(industry)), domain);
+P_Government = Pr(government(~isnan(government)), domain);
+
+missing = isnan(ppp) | ...
+     isnan(journal) |isnan(agriculture) | isnan(industry) | isnan(government);
+P_PPP_given_Journal_Agriculture_Industry_Government = CPT(...
+    ppp(~missing), journal(~missing), agriculture(~missing), industry(~missing), government(~missing));
+
+display(P_Journal);
+display(P_Agriculture);
+display(P_Industry);
+display(P_Government);
+display(P_PPP_given_Journal_Agriculture_Industry_Government);
