@@ -140,9 +140,9 @@ display(P_PPP_given_Journal);
 Africa =  get_region(Dataset, char(CountryName), 'Sub-Saharan Africa (all income levels)');
 [Africa_STE_deps, Africa_STE_vals] = BN1.get_STE_values(Africa,char(IndicatorName), thresh, min);
 
-journal = discretize(Europe(:,1));
-agriculture = discretize(Europe(:,3));
-ppp = discretize(Europe(:, 9));
+journal = discretize(Africa(:,1));
+agriculture = discretize(Africa(:,3));
+ppp = discretize(Africa(:, 9));
 
 P_Journal = Pr(journal(~isnan(journal)), domain);
 P_Agriculture = Pr(agriculture(~isnan(agriculture)), domain);
@@ -153,3 +153,26 @@ P_PPP_given_Journal_Agriculture = CPT(ppp(~missing), journal(~missing), agricult
 display(P_Journal);
 display(P_Agriculture);
 display(P_PPP_given_Journal_Agriculture);
+
+%% Region 7 : North America
+NorthAmerica =  get_region(Dataset, char(CountryName), 'North America');
+[NorthAmerica_STE_deps, NorthAmerica_STE_vals] = BN1.get_STE_values(NorthAmerica,char(IndicatorName), thresh, min);
+
+tertiary = discretize(NorthAmerica(:,11));
+journal = discretize(NorthAmerica(:,1));
+agriculture = discretize(NorthAmerica(:,3));
+ppp = discretize(NorthAmerica(:, 9));
+
+P_Tertiary = Pr(tertiary(~isnan(tertiary)), domain);
+P_Agriculture = Pr(agriculture(~isnan(agriculture)), domain);
+
+missing = isnan(journal) | isnan(tertiary);
+P_Journal_given_Tertiary = CPT(journal(~missing), tertiary(~missing));
+
+missing = isnan(journal) | isnan(ppp);
+P_PPP_given_Journal = CPT(ppp(~missing), journal(~missing));
+
+display(P_Tertiary);
+display(P_Agriculture);
+display(P_Journal_given_Tertiary);
+display(P_PPP_given_Journal);
