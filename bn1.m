@@ -31,7 +31,7 @@ ppp = discretize(EastAsia(:, 9));
 P_Journal = Pr(journal(~isnan(journal)), domain);
 P_Agriculture = Pr(agriculture(~isnan(agriculture)), domain);
 
-missing = isnan(ppp) | isnan(agriculture) | isnan(journal);
+missing = isnan(ppp) | isnan(journal) | isnan(agriculture);
 P_PPP_given_Journal_Agriculture = CPT(ppp(~missing), journal(~missing), agriculture(~missing));
 
 display(P_Journal);
@@ -45,35 +45,27 @@ Europe =  get_region(Dataset, char(CountryName), 'Europe & Central Asia (all inc
 journal = discretize(Europe(:,1));
 agriculture = discretize(Europe(:,3));
 industry = discretize(Europe(:,4));
-government = discretize(Europe(:,7));
 tertiary = discretize(Europe(:,11));
 ppp = discretize(Europe(:, 9));
 
 P_Tertiary = Pr(tertiary(~isnan(tertiary)), domain);
+P_Agriculture = Pr(agriculture(~isnan(agriculture), domain));
 
 missing = isnan(journal) | isnan(tertiary);
 P_Journal_given_Tertiary = CPT(journal(~missing), tertiary(~missing));
 
-missing = isnan(agriculture) | isnan(tertiary);
-P_Agriculture_given_Tertiary = CPT(agriculture(~missing), tertiary(~missing));
-
 missing = isnan(industry) | isnan(tertiary);
 P_Industry_given_Tertiary = CPT(industry(~missing), tertiary(~missing));
 
-missing = isnan(government) | isnan(tertiary);
-P_Government_given_Tertiary = CPT(government(~missing), tertiary(~missing));
-
-missing = isnan(ppp) | ...
-    isnan(agriculture) | isnan(journal) | isnan(agriculture) | isnan(industry) | isnan(government);
-P_PPP_given_Journal_Agriculture_Industry_Government = CPT(...
-    ppp(~missing), journal(~missing), agriculture(~missing), industry(~missing), government(~missing));
+missing = isnan(ppp) | isnan(journal) | isnan(agriculture) | isnan(industry);
+P_PPP_given_Journal_Agriculture_Industry = CPT(...
+    ppp(~missing), journal(~missing), agriculture(~missing), industry(~missing));
 
 display(P_Tertiary);
 display(P_Journal_given_Tertiary);
-display(P_Agriculture_given_Tertiary);
+display(P_Agriculture);
 display(P_Industry_given_Tertiary);
-display(P_Government_given_Tertiary);
-display(P_PPP_given_Journal_Agriculture_Industry_Government);
+display(P_PPP_given_Journal_Agriculture_Industry);
 
 %% Region 3 : Latin America & Caribbean
 LatinAmerica =  get_region(Dataset, char(CountryName), 'Latin America & Caribbean (all income levels)');
