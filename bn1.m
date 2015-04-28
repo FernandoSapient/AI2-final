@@ -176,3 +176,18 @@ display(P_Tertiary);
 display(P_Agriculture);
 display(P_Journal_given_Tertiary);
 display(P_PPP_given_Journal);
+
+%% Region 8 : World
+World = get_region(Dataset, char(CountryName), 'World');
+[World_STE_deps_1, World_STE_vals_1] = BN1.get_STE_values(World,char(IndicatorName), thresh, min);
+
+agriculture = discretize(World(:,3));
+ppp = discretize(World(:,9));
+
+P_Agriculture = Pr(agriculture(~isnan(agriculture)), domain);
+
+missing = isnan(agriculture) | isnan(ppp);
+P_PPP_given_Agriculture = CPT(ppp(~missing), agriculture(~missing));
+
+display(P_Agriculture);
+display(P_PPP_given_Agriculture);
