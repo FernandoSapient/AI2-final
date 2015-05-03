@@ -40,7 +40,7 @@ display(P_PPP_given_Journal_Agriculture);
 
 %% Region 2 : Europe & Central Africa
 Europe =  get_region(Dataset, char(CountryName), 'Europe & Central Asia (all income levels)');
-[Europe_STE_deps, Eurpe_STE_vals] = BN1.get_STE_values(Europe,char(IndicatorName), thresh, min);
+%[Europe_STE_deps, Eurpe_STE_vals] = BN1.get_STE_values(Europe,char(IndicatorName), thresh, min);
 
 journal = discretize(Europe(:,1));
 agriculture = discretize(Europe(:,3));
@@ -49,7 +49,7 @@ tertiary = discretize(Europe(:,11));
 ppp = discretize(Europe(:, 9));
 
 P_Tertiary = Pr(tertiary(~isnan(tertiary)), domain);
-P_Agriculture = Pr(agriculture(~isnan(agriculture), domain));
+P_Agriculture = Pr(agriculture(~isnan(agriculture)), domain);
 
 missing = isnan(journal) | isnan(tertiary);
 P_Journal_given_Tertiary = CPT(journal(~missing), tertiary(~missing));
