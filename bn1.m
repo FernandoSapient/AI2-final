@@ -169,13 +169,13 @@ P_Agriculture = Pr(agriculture(~isnan(agriculture)), domain);
 missing = isnan(journal) | isnan(tertiary);
 P_Journal_given_Tertiary = CPT(journal(~missing), tertiary(~missing));
 
-missing = isnan(journal) | isnan(ppp);
-P_PPP_given_Journal = CPT(ppp(~missing), journal(~missing));
+missing = isnan(journal) | isnan(agriculture) | isnan(ppp);
+P_PPP_given_Journal_Agriculture = CPT(ppp(~missing), journal(~missing), agriculture(~missing));
 
 display(P_Tertiary);
 display(P_Agriculture);
 display(P_Journal_given_Tertiary);
-display(P_PPP_given_Journal);
+display(P_PPP_given_Journal_Agriculture);
 
 %% Region 8 : World
 World = get_region(Dataset, char(CountryName), 'World');
