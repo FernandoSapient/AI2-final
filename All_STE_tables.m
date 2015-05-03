@@ -5,7 +5,7 @@ load_region_lookup_autogen;
 load_var_name_autogen;
 
 %% Compute tables
-thresh = .1;
+thresh = .03;
 min = .5;
 World = get_region(Allvariables, char(CountryName), 'World');
 [World_STE_deps_1, World_STE_vals_1] = BN1.get_STE_values(World,char(IndicatorName), thresh, min);
