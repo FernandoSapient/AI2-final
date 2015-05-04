@@ -91,6 +91,8 @@ display(P_Journal);
 display(P_Agriculture_given_Tertiary);
 display(P_PPP_given_Journal_Agriculture);
 
+BN1.latin_america
+
 %% Region 4 : Middle East & North Africa
 MiddleEast =  get_region(Dataset, char(CountryName), 'Middle East & North Africa (all income levels)');
 [MiddleEast_STE_deps, MiddleEast_STE_vals] = BN1.get_STE_values(MiddleEast,char(IndicatorName), thresh, min);
@@ -177,6 +179,8 @@ display(P_Tertiary);
 display(P_Agriculture);
 display(P_Journal_given_Tertiary);
 display(P_PPP_given_Journal_Agriculture);
+
+BN1.north_america
 
 %% Region 8 : World
 World = get_region(Dataset, char(CountryName), 'World');
