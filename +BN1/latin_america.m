@@ -26,11 +26,16 @@ for(i=1:length(ppp))
             %of Journal
             ppp_probabilities = (P_PPP_given_Journal_Agriculture(domain2(:,1)==journal(i),:)'*P_joint_agriculture')'*P_Journal(domain1==journal(i));
         else
-            %All unknown: multiply conditional of each combination by (?)
+            %All unknown: multiply conditional of each combination by the
+            %joint probability of agriculture and journals for the that
+            %combination
             ppp_probabilities = P_PPP_given_Journal_Agriculture' * (repmat(P_joint_agriculture',3,1).* [ P_Journal(1)*ones(1,3) P_Journal(2)*ones(1,3) P_Journal(3)*ones(1,3) ]') ;
         end
     end
     [~, most_likely] = max(ppp_probabilities);
     predicted_ppp(i) = domain1(most_likely);
 end
-accuracy = sum(ppp == predicted_ppp);
+
+display(confusion(ppp, predicted_ppp));
+
+accuracy = sum(ppp == predicted_ppp) / sum(~isnan(ppp))
