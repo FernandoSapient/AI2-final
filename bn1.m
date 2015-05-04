@@ -66,6 +66,7 @@ display(P_Journal_given_Tertiary);
 display(P_Agriculture);
 display(P_Industry_given_Tertiary);
 display(P_PPP_given_Journal_Agriculture_Industry);
+
 BN1.europe;
 %% Region 3 : Latin America & Caribbean
 LatinAmerica =  get_region(Dataset, char(CountryName), 'Latin America & Caribbean (all income levels)');

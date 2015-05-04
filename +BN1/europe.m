@@ -1,14 +1,7 @@
-%% Compute the Elimination of the Europe... 
-clc;
-P_Tertiary
-P_Journal_given_Tertiary
-P_Industry_given_Tertiary
-P_Agriculture
-P_Industry_given_Tertiary
 %% Eliminate Tertiary from Journal...
 for i=1:3
     for j=1:3
-       P_Journal_and_Tertiary(i,j)=P_Tertiary(i).*P_Journal_given_Tertiary(i,j)
+       P_Journal_and_Tertiary(i,j) = P_Tertiary(i) .* P_Journal_given_Tertiary(i,j);
     end
 end
  P_Journal(1,1)=sum(P_Journal_and_Tertiary(:,1));
@@ -31,21 +24,21 @@ end
     domains{3}='HML'+0; % Jour. domain
     
  %% query for the Euorpe region...
-domain = combination(domains);   %domain of the joint of two variables
+all_domain = combination(domains);   %domain of the joint of two variables
 predicted_ppp = zeros(size(ppp));
 
-for(i=1:length(ppp)-1)
+for i=1:length(ppp)-1
     if(~isnan(agriculture(i)))
         if(~isnan(industry(i)))
             % All known: Access corresponding row from CPT
-            ppp_probabilities = P_PPP_given_Journal_Agriculture_Industry(domain(:,1)==journal(i) & domain(:,2)==agriculture(i) & domain(:,3)==industry(i),:);
+            ppp_probabilities = P_PPP_given_Journal_Agriculture_Industry(all_domain(:,1)==journal(i) & all_domain(:,2)==agriculture(i) & all_domain(:,3)==industry(i),:);
         elseif(~isnan(journal(i)))
             % All known: Access corresponding row from CPT
-            ppp_probabilities = P_PPP_given_Journal_Agriculture_Industry(domain(:,1)==journal(i) & domain(:,2)==agriculture(i) & domain(:,3)==industry(i),:);
+            ppp_probabilities = P_PPP_given_Journal_Agriculture_Industry(all_domain(:,1)==journal(i) & all_domain(:,2)==agriculture(i) & all_domain(:,3)==industry(i),:);
         else
             % unknown: multiply prob. of each value of journal with
             % sum of corresponding prob. for the known value of agriculture
-            ppp_probabilities = (P_PPP_given_Journal_Agriculture_Industry(domain(:,1)==journal(i)& domain(:,3)==industry(i),:)'*P_Agriculture')';
+            ppp_probabilities = (P_PPP_given_Journal_Agriculture_Industry(all_domain(:,1)==journal(i)& all_domain(:,3)==industry(i),:)'*P_Agriculture')';
         end
     else
         if(~isnan(tertiary(i)))
@@ -61,12 +54,12 @@ for(i=1:length(ppp)-1)
             %Agriculture unknown, Journal known: multiply prob. of each
             %value of agriculture with corresponding prob. for known value
             %of Journal
-            ppp_probabilities = (P_PPP_given_Journal_Agriculture_Industry(domain(:,2)==agriculture(i) &domain(:,1)==journal(i),:)'*P_joint_Industry')'*P_Agriculture(domains{1}==agriculture(i))*P_Journal_given_Tertiary(domains{1}==journal(i));
+            ppp_probabilities = (P_PPP_given_Journal_Agriculture_Industry(all_domain(:,2)==agriculture(i) &all_domain(:,1)==journal(i),:)'*P_joint_Industry')'*P_Agriculture(domains{1}==agriculture(i))*P_Journal_given_Tertiary(domains{1}==journal(i));
         elseif(~isnan(agriculture(i)))&&(~isnan(industry(i)))
             %Agriculture unknown, Journal known: multiply prob. of each
             %value of agriculture with corresponding prob. for known value
             %of Journal
-            ppp_probabilities = (P_PPP_given_Journal_Agriculture_Industry(domain(:,3)==industry(i) &domain(:,1)==journal(i),:)'*P_joint_Journal')'*P_Agriculture(domains{1}==agriculture(i))*P_Industry_given_Tertiary(domains{1}==industry(i));
+            ppp_probabilities = (P_PPP_given_Journal_Agriculture_Industry(all_domain(:,3)==industry(i) &all_domain(:,1)==journal(i),:)'*P_joint_Journal')'*P_Agriculture(domains{1}==agriculture(i))*P_Industry_given_Tertiary(domains{1}==industry(i));
         else
             %All unknown: multiply conditional of each combination by (?)
             joint_all = repmat(P_joint_Industry',9,1);
