@@ -22,7 +22,7 @@ set_laplace_k(1);
 
 %% Region 1 : East Asia & Pacific
 EastAsia =  get_region(Dataset, char(CountryName), 'East Asia & Pacific (all income levels)');
-[EastAsia_STE_deps, EastAsia_STE_vals] = BN1.get_STE_values(EastAsia, char(IndicatorName), thresh, min);
+%[EastAsia_STE_deps, EastAsia_STE_vals] = BN1.get_STE_values(EastAsia, char(IndicatorName), thresh, min);
 
 journal = discretize(EastAsia(:,1));
 agriculture = discretize(EastAsia(:,3));
@@ -37,7 +37,7 @@ P_PPP_given_Journal_Agriculture = CPT(ppp(~missing), journal(~missing), agricult
 display(P_Journal);
 display(P_Agriculture);
 display(P_PPP_given_Journal_Agriculture);
-
+BN1.east_asia;
 %% Region 2 : Europe & Central Africa
 Europe =  get_region(Dataset, char(CountryName), 'Europe & Central Asia (all income levels)');
 %[Europe_STE_deps, Eurpe_STE_vals] = BN1.get_STE_values(Europe,char(IndicatorName), thresh, min);
@@ -70,7 +70,7 @@ display(P_PPP_given_Journal_Agriculture_Industry);
 BN1.europe;
 %% Region 3 : Latin America & Caribbean
 LatinAmerica =  get_region(Dataset, char(CountryName), 'Latin America & Caribbean (all income levels)');
-[LatinAmerica_STE_deps, LatinAmerica_STE_vals] = BN1.get_STE_values(LatinAmerica,char(IndicatorName), thresh, min);
+%[LatinAmerica_STE_deps, LatinAmerica_STE_vals] = BN1.get_STE_values(LatinAmerica,char(IndicatorName), thresh, min);
 
 tertiary = discretize(LatinAmerica(:,11));
 journal = discretize(LatinAmerica(:,1));
@@ -95,7 +95,7 @@ BN1.latin_america
 
 %% Region 4 : Middle East & North Africa
 MiddleEast =  get_region(Dataset, char(CountryName), 'Middle East & North Africa (all income levels)');
-[MiddleEast_STE_deps, MiddleEast_STE_vals] = BN1.get_STE_values(MiddleEast,char(IndicatorName), thresh, min);
+%[MiddleEast_STE_deps, MiddleEast_STE_vals] = BN1.get_STE_values(MiddleEast,char(IndicatorName), thresh, min);
 
 journal = discretize(MiddleEast(:,1));
 agriculture = discretize(MiddleEast(:,3));
@@ -121,7 +121,7 @@ display(P_PPP_given_Journal_Agriculture_Industry_Government);
 
 %% Region 5 : South Asia
 SouthAsia =  get_region(Dataset, char(CountryName), 'South Asia');
-[SouthAsia_STE_deps, SouthAsia_STE_vals] = BN1.get_STE_values(SouthAsia,char(IndicatorName), thresh, min);
+%[SouthAsia_STE_deps, SouthAsia_STE_vals] = BN1.get_STE_values(SouthAsia,char(IndicatorName), thresh, min);
 
 tertiary = discretize(SouthAsia(:,11));
 journal = discretize(SouthAsia(:,1));
@@ -141,7 +141,7 @@ display(P_PPP_given_Journal);
 
 %% Region 6 : Sub-saharan Africa
 Africa =  get_region(Dataset, char(CountryName), 'Sub-Saharan Africa (all income levels)');
-[Africa_STE_deps, Africa_STE_vals] = BN1.get_STE_values(Africa,char(IndicatorName), thresh, min);
+%[Africa_STE_deps, Africa_STE_vals] = BN1.get_STE_values(Africa,char(IndicatorName), thresh, min);
 
 journal = discretize(Africa(:,1));
 agriculture = discretize(Africa(:,3));
@@ -159,7 +159,7 @@ display(P_PPP_given_Journal_Agriculture);
 
 %% Region 7 : North America
 NorthAmerica =  get_region(Dataset, char(CountryName), 'North America');
-[NorthAmerica_STE_deps, NorthAmerica_STE_vals] = BN1.get_STE_values(NorthAmerica,char(IndicatorName), thresh, min);
+%[NorthAmerica_STE_deps, NorthAmerica_STE_vals] = BN1.get_STE_values(NorthAmerica,char(IndicatorName), thresh, min);
 
 tertiary = discretize(NorthAmerica(:,11));
 journal = discretize(NorthAmerica(:,1));
@@ -184,7 +184,7 @@ BN1.north_america
 
 %% Region 8 : World
 World = get_region(Dataset, char(CountryName), 'World');
-[World_STE_deps_1, World_STE_vals_1] = BN1.get_STE_values(World,char(IndicatorName), thresh, min);
+%[World_STE_deps_1, World_STE_vals_1] = BN1.get_STE_values(World,char(IndicatorName), thresh, min);
 
 agriculture = discretize(World(:,3));
 ppp = discretize(World(:,9));
