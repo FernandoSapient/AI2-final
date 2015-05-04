@@ -37,7 +37,9 @@ P_PPP_given_Journal_Agriculture = CPT(ppp(~missing), journal(~missing), agricult
 display(P_Journal);
 display(P_Agriculture);
 display(P_PPP_given_Journal_Agriculture);
+
 BN1.east_asia;
+BN1.baseline_accuracy(EastAsia);
 %% Region 2 : Europe & Central Africa
 Europe =  get_region(Dataset, char(CountryName), 'Europe & Central Asia (all income levels)');
 %[Europe_STE_deps, Eurpe_STE_vals] = BN1.get_STE_values(Europe,char(IndicatorName), thresh, min);
@@ -119,6 +121,9 @@ display(P_Industry);
 display(P_Government);
 display(P_PPP_given_Journal_Agriculture_Industry_Government);
 
+BN1.middle_east;
+BN1.baseline_accuracy(MiddleEast);
+
 %% Region 5 : South Asia
 SouthAsia =  get_region(Dataset, char(CountryName), 'South Asia');
 %[SouthAsia_STE_deps, SouthAsia_STE_vals] = BN1.get_STE_values(SouthAsia,char(IndicatorName), thresh, min);
@@ -195,4 +200,3 @@ missing = isnan(agriculture) | isnan(ppp);
 P_PPP_given_Agriculture = CPT(ppp(~missing), agriculture(~missing));
 
 display(P_Agriculture);
-display(P_PPP_given_Agriculture);
