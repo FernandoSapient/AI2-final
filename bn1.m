@@ -70,6 +70,7 @@ display(P_Industry_given_Tertiary);
 display(P_PPP_given_Journal_Agriculture_Industry);
 
 BN1.europe;
+BN1.baseline_accuracy(Europe);
 %% Region 3 : Latin America & Caribbean
 LatinAmerica =  get_region(Dataset, char(CountryName), 'Latin America & Caribbean (all income levels)');
 %[LatinAmerica_STE_deps, LatinAmerica_STE_vals] = BN1.get_STE_values(LatinAmerica,char(IndicatorName), thresh, min);
@@ -94,7 +95,7 @@ display(P_Agriculture_given_Tertiary);
 display(P_PPP_given_Journal_Agriculture);
 
 BN1.latin_america
-
+BN1.baseline_accuracy(LatinAmerica);
 %% Region 4 : Middle East & North Africa
 MiddleEast =  get_region(Dataset, char(CountryName), 'Middle East & North Africa (all income levels)');
 %[MiddleEast_STE_deps, MiddleEast_STE_vals] = BN1.get_STE_values(MiddleEast,char(IndicatorName), thresh, min);
@@ -123,7 +124,6 @@ display(P_PPP_given_Journal_Agriculture_Industry_Government);
 
 BN1.middle_east;
 BN1.baseline_accuracy(MiddleEast);
-
 %% Region 5 : South Asia
 SouthAsia =  get_region(Dataset, char(CountryName), 'South Asia');
 %[SouthAsia_STE_deps, SouthAsia_STE_vals] = BN1.get_STE_values(SouthAsia,char(IndicatorName), thresh, min);
@@ -144,6 +144,8 @@ display(P_Tertiary);
 display(P_Journal_given_Tertiary);
 display(P_PPP_given_Journal);
 
+BN1.south_asia;
+BN1.baseline_accuracy(SouthAsia);
 %% Region 6 : Sub-saharan Africa
 Africa =  get_region(Dataset, char(CountryName), 'Sub-Saharan Africa (all income levels)');
 %[Africa_STE_deps, Africa_STE_vals] = BN1.get_STE_values(Africa,char(IndicatorName), thresh, min);
@@ -162,6 +164,8 @@ display(P_Journal);
 display(P_Agriculture);
 display(P_PPP_given_Journal_Agriculture);
 
+BN1.africa;
+BN1.baseline_accuracy(Africa);
 %% Region 7 : North America
 NorthAmerica =  get_region(Dataset, char(CountryName), 'North America');
 %[NorthAmerica_STE_deps, NorthAmerica_STE_vals] = BN1.get_STE_values(NorthAmerica,char(IndicatorName), thresh, min);
@@ -185,8 +189,8 @@ display(P_Agriculture);
 display(P_Journal_given_Tertiary);
 display(P_PPP_given_Journal_Agriculture);
 
-BN1.north_america
-
+BN1.north_america;
+BN1.baseline_accuracy(NorthAmerica);
 %% Region 8 : World
 World = get_region(Dataset, char(CountryName), 'World');
 %[World_STE_deps_1, World_STE_vals_1] = BN1.get_STE_values(World,char(IndicatorName), thresh, min);
@@ -200,3 +204,7 @@ missing = isnan(agriculture) | isnan(ppp);
 P_PPP_given_Agriculture = CPT(ppp(~missing), agriculture(~missing));
 
 display(P_Agriculture);
+display(P_PPP_given_Agriculture);
+
+BN1.world;
+BN1.baseline_accuracy(World);
