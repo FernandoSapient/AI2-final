@@ -79,15 +79,15 @@ for(i=1:length(ppp)-1)
     try
         predicted_ppp(i) = domains{1}(most_likely);
     catch
-        disp('OMG!')
-        ppp_probabilities
-        most_likely
-        predicted_ppp
-        agriculture(i)
-        industry(i)
-        journal(i)
-        tertiary(i)
-        ppp(i)
+        ppp_probabilities;
+        most_likely;
+        predicted_ppp;
+        agriculture(i);
+        industry(i);
+        journal(i);
+        tertiary(i);
+        ppp(i);
     end
 end
-accuracy = sum(ppp == predicted_ppp);
+display('The preduction of the purchasing power parity (PPP) is :');
+accuracy =sum(ppp == predicted_ppp) / sum(~isnan(ppp))
