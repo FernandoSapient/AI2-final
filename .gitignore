@@ -43,3 +43,6 @@ Temporary Items
 .apdisk
 *~
 ~$*
+*.synctex.gz
+*.aux
+*.log
