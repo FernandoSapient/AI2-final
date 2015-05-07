@@ -1,4 +1,4 @@
-function [ prediction ] = prediction_by_elimination( e, domains, factors )
+function [ prediction ] = predict_by_elimination( e, domains, factors )
 % prediction_by_elimination - Predict PPP by elimination inference
 %
 % input:

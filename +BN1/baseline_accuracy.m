@@ -44,7 +44,7 @@ factors = P_PPP_given_Tertiary_Journal_Agriculture_Industry_Government;
 factors = make_factors(e, domains, bn, factors);
 
 % prediction
-predicted_ppp = prediction_by_elimination(e, domains, factors);
+predicted_ppp = predict_by_elimination(e, domains, factors);
 
 % confusion and accuracy
 confusion_table = confusion(ppp, predicted_ppp);
