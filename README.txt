@@ -18,7 +18,7 @@ Repository: https://github.com/FernandoSapient/AI2-final
 
 Programming language: Matlab
 
-Library dependencies:
+Third-party library dependencies:
   STEYXY.m : http://www.mathworks.com/matlabcentral/fileexchange/48070-monte-carlo-example-of-a-multi-commodity-spot-and-forward-curves-simulator/content/STEYXY.m
 
 Running the code:
