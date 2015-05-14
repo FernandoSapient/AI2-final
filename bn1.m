@@ -20,7 +20,8 @@ domain = ['H' 'M' 'L']' + 0;
 % Laplacian smoothing parameter
 set_laplace_k(1);
 
-%% Region 1 : East Asia & Pacific
+% Region 1 : East Asia & Pacific
+section('East Asia & Pacific');
 EastAsia =  get_region(Dataset, char(CountryName), 'East Asia & Pacific (all income levels)');
 %[EastAsia_STE_deps, EastAsia_STE_vals] = BN1.get_STE_values(EastAsia, char(IndicatorName), thresh, min);
 
@@ -40,7 +41,9 @@ display(P_PPP_given_Journal_Agriculture);
 
 BN1.east_asia;
 BN1.baseline_accuracy(EastAsia);
-%% Region 2 : Europe & Central Africa
+
+% Region 2 : Europe & Central Africa
+section('Europe & Central Africa');
 Europe =  get_region(Dataset, char(CountryName), 'Europe & Central Asia (all income levels)');
 %[Europe_STE_deps, Eurpe_STE_vals] = BN1.get_STE_values(Europe,char(IndicatorName), thresh, min);
 
@@ -71,7 +74,9 @@ display(P_PPP_given_Journal_Agriculture_Industry);
 
 BN1.europe;
 BN1.baseline_accuracy(Europe);
-%% Region 3 : Latin America & Caribbean
+
+% Region 3 : Latin America & Caribbean
+section('Latin America & Caribbean');
 LatinAmerica =  get_region(Dataset, char(CountryName), 'Latin America & Caribbean (all income levels)');
 %[LatinAmerica_STE_deps, LatinAmerica_STE_vals] = BN1.get_STE_values(LatinAmerica,char(IndicatorName), thresh, min);
 
@@ -96,7 +101,9 @@ display(P_PPP_given_Journal_Agriculture);
 
 BN1.latin_america
 BN1.baseline_accuracy(LatinAmerica);
-%% Region 4 : Middle East & North Africa
+
+% Region 4 : Middle East & North Africa
+section('Middle East & North Africa');
 MiddleEast =  get_region(Dataset, char(CountryName), 'Middle East & North Africa (all income levels)');
 %[MiddleEast_STE_deps, MiddleEast_STE_vals] = BN1.get_STE_values(MiddleEast,char(IndicatorName), thresh, min);
 
@@ -124,8 +131,10 @@ display(P_PPP_given_Journal_Agriculture_Industry_Government);
 
 BN1.middle_east;
 BN1.baseline_accuracy(MiddleEast);
-%% Region 5 : South Asia
-SouthAsia =  get_region(Dataset, char(CountryName), 'South Asia');
+
+% Region 5 : South Asia
+section('South Asia');
+SouthAsia = get_region(Dataset, char(CountryName), 'South Asia');
 %[SouthAsia_STE_deps, SouthAsia_STE_vals] = BN1.get_STE_values(SouthAsia,char(IndicatorName), thresh, min);
 
 tertiary = discretize(SouthAsia(:,11));
@@ -146,7 +155,9 @@ display(P_PPP_given_Journal);
 
 BN1.south_asia;
 BN1.baseline_accuracy(SouthAsia);
-%% Region 6 : Sub-saharan Africa
+
+% Region 6 : Sub-saharan Africa
+section('Sub-saharan Africa');
 Africa =  get_region(Dataset, char(CountryName), 'Sub-Saharan Africa (all income levels)');
 %[Africa_STE_deps, Africa_STE_vals] = BN1.get_STE_values(Africa,char(IndicatorName), thresh, min);
 
@@ -166,7 +177,9 @@ display(P_PPP_given_Journal_Agriculture);
 
 BN1.africa;
 BN1.baseline_accuracy(Africa);
-%% Region 7 : North America
+
+% Region 7 : North America
+section('North America');
 NorthAmerica =  get_region(Dataset, char(CountryName), 'North America');
 %[NorthAmerica_STE_deps, NorthAmerica_STE_vals] = BN1.get_STE_values(NorthAmerica,char(IndicatorName), thresh, min);
 
@@ -191,7 +204,9 @@ display(P_PPP_given_Journal_Agriculture);
 
 BN1.north_america;
 BN1.baseline_accuracy(NorthAmerica);
-%% Region 8 : World
+
+% Region 8 : World
+section('World');
 World = get_region(Dataset, char(CountryName), 'World');
 %[World_STE_deps_1, World_STE_vals_1] = BN1.get_STE_values(World,char(IndicatorName), thresh, min);
 

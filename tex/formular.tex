@@ -1,0 +1,30 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=1 in]{geometry}
+\usepackage{amsmath}
+\everymath{\displaystyle}
+
+\begin{document}
+
+\begin{equation}
+  X = (x_1, \dotsc, x_n); \quad Domain = \{H, M, L\}
+\end{equation}
+
+\begin{align}
+  P(x_{1}, \dotsc, x_{n}) &= \prod_{i=1}^n P(x_i|parent(X_i)) \\
+  &= P(x_1) P(x_2) P(x_3|x_1) P(x_4|x_1) P(x_5|x_2, x_3, x_4)
+\end{align}
+
+\begin{equation}
+  scaled\_Journal_R = \frac{Journal_R}{Population_R} * 100
+\end{equation}
+
+\begin{equation}
+  PPP = \frac{GDP * RealExchangeRate}{Population_R}
+\end{equation}
+
+\begin{equation}
+  \arg\max_{x_i} P(x_i|PPP,Edu)
+\end{equation}
+
+\end{document}
